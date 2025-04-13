@@ -1,0 +1,15 @@
+Abdul Shakoor Raed: SonarQube setup, Jenkins - Pipeline connections successful builds and build history,  started SonarQube (StartSonar.bat) , ran tests, created the token, created a sonar-project.properties file, added configurations, projectVersion,
+sonar sources path, sonar tests path, sonar java binaries location in directory, junit reportPaths of sonar, sonar language java, sourceEncodings, url etc.,Installed compatible versions of Java at specific stages,  ensured Sonarqube analyzed
+our code, Ran the Sonar Code static analysis with a report generated and commands from Powershell (in the form of screenshots), fixed errors in the build.gradle file, made the project config consistent,officially integrated with static code analysis and 
+finally scanned sonar and successfully ran all tasks.
+Did Stage 3: Running the Sonar Code static analysis with a report generated. Jenkinsfile defining the pipelines with the 3 stages above . GitHub pull request page showing Jenkins build outcome , link to redirect to Jenkins for CI details and logs                                                    
+
+
+Zayn Dias: Did entire dockerization,Demonstrated the successful deployment of Jenkins on our Codespace instance, used the apropriate plug-in link to our GitHub account, so that webhooks are automatically registered to GitHub.
+
+
+Lana Hawa: Updated the Dockerfile, Jenkinsfile according to the java version requirements, sonar password etc. created a java test file for implementing testing etc. Stage 2: Passing at least one unit test case included in the project.
+
+
+Denis: Initialized the repository, aided in containerization,  Triggering automated checks upon pull request to the main branch ,ensured that when a pull request is made towards the main branch, 
+an automated build will be triggered, including the following stages: Stage 1: Passing the container build based on the new code of the pull request.
