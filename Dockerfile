@@ -1,13 +1,30 @@
-# Use an official OpenJDK base image
-FROM openjdk:17-jdk-slim
 
-# Set working directory inside container
-WORKDIR /app
+FROM jenkins/jenkins:alpine
 
-COPY build/libs/demo-1.0.0.war app.war
+USER root
 
-# Expose the port the app runs on
-EXPOSE 8080
+Install Docker, curl, unzip, and both JDKs
+RUN apk add --update \
+    openrc \
+    docker \
+    openjdk11 \
+    openjdk17 \
+    bash \
+    curl \
+    unzip
 
-# Command to run the application
-CMD ["java", "-jar", "app.war"]
+Set Gradle version
+ENV GRADLE_VERSION=7.6
+ENV GRADLE_HOME=/opt/gradle
+
+Download and install Gradle
+RUN mkdir -p ${GRADLE_HOME} && \
+    curl -fsSL https://services.gradle.org/distributions/gradle-$%7BGRADLE_VERSION%7D-bin.zip -o /tmp/gradle.zip && \
+    unzip /tmp/gradle.zip -d /opt/gradle && \
+    rm /tmp/gradle.zip
+
+Add Gradle to PATH
+ENV PATH="${GRADLE_HOME}/gradle-${GRADLE_VERSION}/bin:${PATH}"
+
+Verify installation
+RUN gradle -v
